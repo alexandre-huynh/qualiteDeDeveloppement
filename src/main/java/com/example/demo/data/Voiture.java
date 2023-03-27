@@ -5,7 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+// hors cours : projet lombock
+// qui permet d'e générer les getter setters etc grace à
+// @getter, @setter, @data, @tostring, @equalsHashCode
+
+// cours
+// 3 couches
+// couche data
+// couche service
+// couche Web
+
+@Entity // composant springboot, un beeen
 public class Voiture {
 
     private int id;
@@ -18,8 +28,7 @@ public class Voiture {
 
     }
 
-    public Voiture(int unId, String uneMarque, int unPrix){
-        this.id = unId;
+    public Voiture(String uneMarque, int unPrix){
         this.marque = uneMarque;
         this.prix = unPrix;
     }
@@ -40,6 +49,7 @@ public class Voiture {
         this.prix = prix;
     }
 
+    // clé primaire id, ici bd en mémoire
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {

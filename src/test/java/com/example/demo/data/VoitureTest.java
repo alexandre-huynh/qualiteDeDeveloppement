@@ -9,16 +9,36 @@ public class VoitureTest {
 
     @Test
     void creerVoiture(){
-        Voiture voiture1 = new Voiture(0, "Renault", 10000);
+
+        // avec arguments
+        Voiture voiture1 = new Voiture("Renault", 10000);
         Assert.isInstanceOf(Voiture.class, voiture1, "Pas une voiture");
 
-        Assert.isTrue(voiture1.getId() == 0, "Id incorrect");
-        Assert.isTrue(voiture1.getMarque().equals("Renault") == true, "Marque incorrect");
+        // vérification marque et prix
+        Assert.isTrue(voiture1.getMarque().equals("Renault"), "Marque incorrect");
         Assert.isTrue(voiture1.getPrix() == 10000, "Prix incorrect");
 
-        voiture1.setId(5);
+        // changement de marque
+        voiture1.setMarque("Peugeot");
+        Assert.isTrue(voiture1.getMarque().equals("Peugeot") , "Marque changé incorrect");
 
-        Assert.isTrue(voiture1.getId() == 5, "Id changé et incorrect");
+        // changement de prix
+        voiture1.setPrix(5000);
+        Assert.isTrue(voiture1.getPrix() == 5000, "Prix changé incorrect");
+
+        // =====================================
+
+        // sans arguments
+        Voiture voiture2 = new Voiture();
+        Assert.isInstanceOf(Voiture.class, voiture2, "Pas une voiture");
+
+        //Assert.isTrue(voiture2.getMarque().equals("") == true, "Prix constr. défaut faux");
+        //Assert.isTrue(voiture2.getPrix()== 0, "Prix constr. défaut faux");
+
+        // ancien avec changement de id
+        //Assert.isTrue(voiture1.getId() == 0, "Id incorrect");
+        //voiture1.setId(5);
+        //Assert.isTrue(voiture1.getId() == 5, "Id changé et incorrect");
     }
 
 }
