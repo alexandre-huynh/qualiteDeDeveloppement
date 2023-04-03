@@ -74,4 +74,12 @@ public class Voiture {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Voiture{" +
+                "id=" + id +
+                ", marque='" + marque + '\'' +
+                ", prix=" + prix +
+                '}';
+    }
 }
