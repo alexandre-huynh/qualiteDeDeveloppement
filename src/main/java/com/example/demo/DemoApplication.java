@@ -47,6 +47,7 @@ public class DemoApplication implements CommandLineRunner{
 
 		// on accède sur internet avec
         // localhost:8080/h2-console
+		// remplacer url par jdbc:h2:mem:testdb
 
 
 		/*

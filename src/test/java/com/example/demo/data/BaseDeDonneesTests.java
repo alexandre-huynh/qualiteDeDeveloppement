@@ -49,6 +49,11 @@ public class BaseDeDonneesTests {
 
     @Test
     void compterTaille(){
+        voitureRepository = mock(VoitureRepository.class);
+        Voiture voiture_bd = new Voiture("a", 10000);
+        when(voitureRepository.save(voiture_bd)).thenReturn(voiture_bd);
+
+
 
     }
 
