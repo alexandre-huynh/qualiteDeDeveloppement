@@ -15,6 +15,19 @@ import javax.persistence.Id;
 // couche service
 // couche Web
 
+/*
+si on utilise lombock
+@Getter
+@Setter
+@toString
+
+on précise que les attributs et le getid (vu qu'il utilise des)
+
+ou sinon
+avec le plugin, sur intellij, clic droit puis generate
+ou dans la section Code
+ */
+
 @Entity // composant springboot, un beeen
 public class Voiture {
 
@@ -28,6 +41,7 @@ public class Voiture {
 
     }
 
+    // l'id est généré automatiquement
     public Voiture(String uneMarque, int unPrix){
         this.marque = uneMarque;
         this.prix = unPrix;

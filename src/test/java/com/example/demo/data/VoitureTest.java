@@ -41,4 +41,34 @@ public class VoitureTest {
         //Assert.isTrue(voiture1.getId() == 5, "Id changé et incorrect");
     }
 
+    @Test
+    void modifMarqueVoiture(){
+        Voiture voiture1 = new Voiture("Renault", 10000);
+        voiture1.setMarque("Peugeot");
+        Assert.isTrue(voiture1.getMarque().equals("Peugeot") , "Marque changé incorrect");
+    }
+
+    @Test
+    void modifPrixVoiture(){
+        Voiture voiture1 = new Voiture("Renault", 10000);
+        voiture1.setPrix(5000);
+        Assert.isTrue(voiture1.getPrix() == 5000, "Prix changé incorrect");
+    }
+
+    @Test
+    void typeVoitureCorrect(){
+        Voiture voiture1 = new Voiture("Renault", 10000);
+        Assert.isInstanceOf(Voiture.class, voiture1, "Pas une voiture");
+    }
+
+    @Test
+    void comparePrix(){
+        Voiture voiture1 = new Voiture("Renault", 10000);
+        Voiture voiture2 = new Voiture("Peugeot", 15000);
+        Assert.isTrue(voiture1.getPrix() != voiture2.getPrix(), "Prix comparé égal alors que tapé 10 000 et 15 000");
+
+        voiture1.setPrix(15000);
+        Assert.isTrue(voiture1.getPrix() == voiture2.getPrix(), "Prix modifié et non égal");
+    }
+
 }

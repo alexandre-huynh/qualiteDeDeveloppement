@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
 
 import java.util.Collections;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 //classe de test
 @SpringBootTest
@@ -22,27 +22,33 @@ public class BaseDeDonneesTests {
     private VoitureRepository voitureRepository;
 
 
-
     @Test
     void uneVoiture(){
         // tester les méthodes de l'interface CrudRepository qui permette d'accéder à la base de données:
         // https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
         // save, find, delete...
-        Voiture voiture_bd = new Voiture();
 
+        voitureRepository = mock(VoitureRepository.class);
+
+        Voiture voiture_bd = new Voiture("a", 10000);
 
         when(voitureRepository.save(voiture_bd)).thenReturn(voiture_bd);
 
-        Voiture voiture_ajouter = voitureRepository.save()
+        //Voiture voiture_ajouter = voitureRepository.save();
 
         // on enregistre dans la bd spring data une voiture
         // AVEC SAVE
-        voitureRepository.save(voiture_bd);
+        //voitureRepository.save(voiture_bd);
 
         //voitureRepository.findById(0);
 
 
         //Assert.isTrue(voitureRepository.count() == 1, "Erreur nb entité enregistré");
+
+    }
+
+    @Test
+    void compterTaille(){
 
     }
 
